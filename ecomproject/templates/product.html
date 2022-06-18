@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+
+        {{ products.desc|truncatewords:155 }}
+
+        Welcome to TIAMY, Where you can see best of your self...
+
+{% endblock %}
+{% block title %}
+    {% if category %}
+        {{ products.name }} - TIAMY
+    {% endif %}
+{% endblock %}
+{% block content %}
+<div class="row my_prod_row_class">
+    <div class="mx_auto">
+        <p><a href="{% url 'ecomapp:allProdCat' %}">Home</a>|<a href="{{products.category.get_url}}">{{products.category}}</a>|{{products.name}}</p>
+    </div>
+</div>
+<div class="container">
+<br>
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+        <div style="min-width:18rem">
+            <img src="{{products.img.url}}" alt="{{products.name}}">
+        </div>
+    </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+            <div>
+            <h1 class="my_prod_title">{{products.name}}</h1>
+            <p>${{products.price}}</p>
+            <p class="my_title">Product Description</p>
+            <p class="text-justify my_prod_text">{{products.desc}}</p>
+            {% if products.stock <= 0 %}
+            <p class="text-justify my_prod_text"><b>Out of Stock</b></p>
+            {% else %}
+            <a class="btn btn-secondary" href="{% url 'cartapp:add_cart' products.id %}">Add to Cart</a>
+            {% endif %}
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+{% endblock %}
