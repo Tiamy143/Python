@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" href="{% static 'form.css' %}">
+</head>
+<body>
+<form method="post" action="register">
+    {% csrf_token %}
+    <div id="first">
+    <h1 style="text-align:center;text-decoration:underline;">Registration</h1>
+    <label>First Name:</label>
+    <input type="text" class="input" name="firstname"><br>
+    <label>Last Name:</label>
+    <input type="text" class="input" name="lastname"><br>
+    <label>User name:</label>
+    <input type="text" class="input" name="username"><br>
+    <label>Email:</label>
+    <input type="email" class="input" name="email"><br>
+    <label>Password:</label>
+    <input type="password" class="input" name="pass"><br>
+    <label>Confirm password:</label>
+    <input type="password" class="input" name="conpass"><br>
+    <input type="submit" class="button" value="Register">
+    <input type="reset" style="background-color:white;" value="Cancel">
+    </div>
+
+</form>
+{% for msg in messages %}
+{{msg}}
+{% endfor %}
+</body>
+</html>

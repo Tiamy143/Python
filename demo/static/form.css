@@ -1,0 +1,35 @@
+div#first{
+width:350px;
+height:auto;
+margin:10px auto 0;
+padding:60px;
+background-color:#dda0dd;
+color:#333;
+border:2px solid #C2D6FF;
+border-radius:40px 0 40px 0
+}
+label{
+display: inline-block;
+margin:4px;
+}
+.input{
+ align:left;
+float:right;
+}
+
+.button{
+background-color:white;
+margin:10px;
+margin-left: 110px;
+}
+
+#lfirst{
+width:350px;
+height:auto;
+margin:150px auto 0;
+padding:60px;
+background-color:#9370db;
+color:#800000;
+border:2px solid #C2D6FF;
+border-radius:40px 0 40px 0
+}
